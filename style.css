@@ -481,7 +481,7 @@ footer {
 
 /* Hamburger Button - Styles the mobile menu toggle button lines and interaction */
 .hamburger-menu {
-  display: flex;
+  display: flex; /* Displayed by default */
   flex-direction: column;
   justify-content: space-around;
   width: 30px;
@@ -517,12 +517,12 @@ footer {
   transform: translateY(-11px) rotate(-45deg);
 }
 
-/* Desktop Navigation Links - Hides the desktop links since the mobile menu is used responsively */
+/* Desktop Navigation Links - HIDDEN BY DEFAULT (MOBILE FIRST APPROACH) */
 .nav-links {
   display: none; 
 }
 
-/* Mobile Menu Container - Styles the dropdown panel that appears when the hamburger is clicked (fixed position is key for scrolling) */
+/* Mobile Menu Container - HIDDEN BY DEFAULT, SHOWN BY JS TOGGLE */
 .mobile-menu-container {
   display: none;
   position: fixed; 
@@ -561,7 +561,7 @@ footer {
 
 /* Mobile Menu Active State - Forces the mobile menu to display when toggled via JavaScript */
 .mobile-menu-container.active {
-  display: block;
+  display: block; /* This ensures the menu is shown when the 'active' class is added */
 }
 
 /* 📱 Responsive Styles (900px breakpoint) - Adjusts layout for medium-sized screens (tablets) */
@@ -601,7 +601,47 @@ footer {
   }
 }
 
-/*  Animated Headings - Creates an animated rainbow effect on specific headings */
+/* ----------------------------------------------------
+   DESKTOP VIEW: OVERRIDE MOBILE STYLES (Min-Width 769px)
+   ---------------------------------------------------- */
+@media (min-width: 769px) {
+  /* Hide the hamburger button on desktop */
+  .hamburger-menu {
+    display: none;
+  }
+  
+  /* Hide the full mobile menu container on desktop */
+  .mobile-menu-container {
+    display: none;
+  }
+  
+  /* Show the main desktop navigation links (in HTML they're hidden by an inline style which should be removed) */
+  .main-nav .nav-links {
+    display: flex !important; /* Use !important to override the inline style from HTML */
+    flex-direction: row;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Style desktop links */
+  .main-nav .nav-links a {
+    color: #2c3e50;
+    font-weight: 500;
+    transition: color 0.3s;
+    border-bottom: none;
+    padding: 0;
+  }
+
+  .main-nav .nav-links a:hover {
+    color: #1abc9c;
+    background-color: transparent;
+  }
+}
+
+
+/*  Animated Headings - Creates an animated rainbow effect on specific headings */
 .project-headings {
   font-size: 2em;
   background: linear-gradient(blue, #1abc9c);
@@ -624,8 +664,8 @@ footer {
 }
 
 /* -------------------------------------
-   Custom Modal Overlay - Styles the dark background that covers the page when the modal is open
-   ------------------------------------- */
+  Custom Modal Overlay - Styles the dark background that covers the page when the modal is open
+  ------------------------------------- */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -712,7 +752,7 @@ footer {
   display: none;
 }
 
-/*  Modal Close Button - Styles the button used to dismiss the modal */
+/*  Modal Close Button - Styles the button used to dismiss the modal */
 .modal-close-btn {
   position: absolute;
   top: 10px;
