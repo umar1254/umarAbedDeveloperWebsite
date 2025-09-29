@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- 🔹 SEO Title & Meta -->
+    <title>Umar Abed | Web Developer South Africa - Custom Websites</title>
+    <meta name="description" content="Professional web developer in Gauteng, based in Johannesburg South. Get a fast, modern, mobile-friendly website designed for local business growth. Free quote available!">
+    
+    <!-- 🔹 Open Graph (Social Sharing) -->
+    <meta property="og:title" content="Umar Abed | Web Developer South Africa" />
+    <meta property="og:description" content="Modern, mobile-friendly websites built in Johannesburg. Boost your local business with fast, optimized websites." />
+    <meta property="og:image" content="images/myLogo.png" />
+    <meta property="og:url" content="https://your-netlify-site.netlify.app" />
+    <meta property="og:type" content="website" />
+
+    <!-- 🔹 Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Umar Abed | Web Developer South Africa" />
+    <meta name="twitter:description" content="Professional web developer creating custom websites in Gauteng. Mobile-first, fast, and optimized for growth." />
+    <meta name="twitter:image" content="images/myLogo.png" />
+
+    <!-- 🔹 Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Umar Abed",
+      "jobTitle": "Web Developer",
+      "url": "https://your-netlify-site.netlify.app",
+      "sameAs": [
+        "https://github.com/umar1254",
+        "https://www.linkedin.com/in/umar-abed-3090002b9/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Johannesburg South",
+        "addressRegion": "Gauteng",
+        "addressCountry": "South Africa"
+      }
+    }
+    </script>
+
+    <!-- 🔹 CSS & Icons -->
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+
+    <header class="navbar">
+        <div class="logo-section">
+            <img src="myLogo.png" alt="Logo" class="logo" width="75" height="75"/>
+            <h1>Umar Abed |Freelance Web & App Developer in Johannesburg, Gauteng | Custom Websites for Local Businesses</h1>
+        </div>
+
+        <nav class="main-nav">
+            <button id="hamburger-button" class="hamburger-menu" aria-controls="mobile-nav" aria-expanded="false">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+            </button>
+            <ul class="nav-links" style="display: none;">
+                <li><a href="#skills">My Skills</a></li>
+                <li><a href="#journey">My Journey</a></li>
+                <li><a href="#projects">My Projects</a></li>
+                <li><a href="#contact">Contact Me</a></li>
+                <li><a href="#hero">Back to Top</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="mobile-nav" class="mobile-menu-container">
+        <ul class="mobile-nav-links">
+            <li><a href="#skills">My Skills</a></li>
+            <li><a href="#journey">My Journey</a></li>
+            <li><a href="#projects">My Projects</a></li>
+            <li><a href="#contact">Contact Me</a></li>
+            <li><a href="#hero">Back to Top</a></li>
+        </ul>
+    </div>
+
+    <section class="control-bar">
+        <div class="control-icons">
+            <a href="https://github.com/umar1254" target="_blank" aria-label="GitHub Profile"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/umar-abed-3090002b9/" target="_blank" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+            <a href="tel:+27837869472" aria-label="Call Me"><i class="fas fa-phone"></i></a>
+            <a href="https://wa.me/27837869472" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:umarabed132@gmail.com" aria-label="Email Me"><i class="fas fa-envelope"></i></a>
+            
+            <label class="switch" for="darkModeToggle">
+                <input type="checkbox" id="darkModeToggle" />
+                <span class="slider">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </span>
+            </label>
+        </div>
+    </section> 
+
+    <main>
+        <section class="hero" id="hero">
+            <div class="hero-text">
+                <h2> 👋 Hello, I’m <span>Umar Abed</span></h2>
+                <p class="intro">Merging elegant code with user-centric design to craft memorable digital journeys. I am a Software Developer dedicated to creating modern, seamless web experiences from concept to launch</p>
+               
+            </div>
+            <div class="hero-img">
+                <img src="myLogo.png" alt="Umar Abed" width="35px" height="35px"/>
+            </div>
+        </section>
+
+        
+        <section class="skills" id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skill-grid">
+                <div class="skill-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                    <p>Building semantic and accessible page structures.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                    <p>Designing modern, responsive, and adaptive layouts.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-js-square"></i>
+                    <h3>JavaScript</h3>
+                    <p>Adding interactivity and dynamic functionality to applications.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Responsive Design</h3>
+                    <p>Ensuring websites look perfect on all screen sizes (mobile-first). </p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-code-branch"></i>
+                    <h3>Git</h3>
+                    <p>Proficient in version control, branching, and merging workflows.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>Collaborative coding and remote repository management.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-file-code"></i>
+                    <h3>VS Code</h3>
+                    <p>Utilizing a powerful IDE for efficient development.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Problem Solving</h3>
+                    <p>Analytical approach to debugging and developing creative solutions.</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="skills" id="journey">
+            <h2 class="section-title" style="margin-bottom: 2rem;">My Journey</h2>
+
+            <div class="skill-card certificate-card">
+                <div class="card-details">
+                    <div style="text-align: left;">
+                        <h3>FreeCodeCamp</h3>
+                        <p>Completed Responsive WebDesign Course</p>
+                    </div>
+                    <div class="date-and-button">
+                        <div class="date-block">June 2025 - July 2025</div>
+                        <button class="btn-certificate" onclick="viewCertificate('images/respweb.png')">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-card certificate-card">
+                <div class="card-details">
+                    <div style="text-align: left;">
+                        <h3>FNB App Academy</h3>
+                        <p>Certificate in Full Stack Development</p>
+                    </div>
+                    <div class="date-and-button">
+                        <div class="date-block">March 2025 - August 2025</div>
+                        <button class="btn-certificate" onclick="viewCertificate('images/fnb.pdf')">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card certificate-card">
+                <div class="card-details">
+                    <div style="text-align: left;">
+                        <h3>EduCourse</h3>
+                        <p>Certificate in HTML and Basic CSS</p>
+                    </div>
+                    <div class="date-and-button">
+                        <div class="date-block">April 2025 - May 2025</div>
+                        <button class="btn-certificate" onclick="viewCertificate('images/html.pdf')">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card certificate-card">
+                <div class="card-details">
+                    <div style="text-align: left;">
+                        <h3>FreeCodeCamp</h3>
+                        <p>Full Stack Development</p>
+                    </div>
+                    <div class="date-and-button">
+                        <div class="date-block">July 2025 - Current</div>
+                        <button class="btn-certificate" onclick="viewCertificate('path/to/freecodecamp_fullstack.pdf')">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-card certificate-card">
+                <div class="card-details">
+                    <div style="text-align: left;">
+                        <h3>ISC2</h3>
+                        <p>CC Domain 1: Security Principals</p>
+                    </div>
+                    <div class="date-and-button">
+                        <div class="date-block">August 2025</div>
+                        <button class="btn-certificate" onclick="viewCertificate('images/umarIsc2Dom1.pdf')">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="skill-card certificate-card">
+                <div class="card-details">
+                    <div style="text-align: left;">
+                        <h3>ISC2</h3>
+                        <p>CC Domain 2: Incident Respone Bussiness Continuity and Disaster Recovery Concepts</p>
+                    </div>
+                    <div class="date-and-button">
+                        <div class="date-block">August 2025</div>
+                        <button class="btn-certificate" onclick="viewCertificate('images/umarIsc2Dom2.pdf')">
+                            View Certificate
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <form name="certificate-emails" netlify netlify-honeypot="bot-field" hidden>
+                <input type="email" name="email" required>
+            </form>
+
+        </section>
+
+         <section id="projects" class="projects">
+
+ <h2 class="section-title">My Projects</h2>
+
+ 
+
+ <div class="project" class="skill-card" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;border: 1px solid #007bff;">
+
+   <img src="calculator.jpg" alt="Calculator App Screenshot" width="250px" height="250px">
+
+<h3 class="project-headings">Calculator App</h3>
+
+ <p>A basic calculator app, a simple, easy-to-use tool that lets users perform quick arithmetic operations like addition, subtraction, multiplication, and division. It features a clean interface with a number pad, a display screen, and a few essential function buttons. Perfect for everyday math tasks, it's designed for speed, clarity, and convenience.</p>
+
+ 
+
+ <br/>
+
+  <a href="https://github.com/umar1254/calculator" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; text-rendering: geometricPrecision; border: 3px solid #007bff; width: 250px; height: 100px; margin-left: auto; margin-right: auto; display: block; text-decoration: none; color: #000;">
+
+    View code
+
+</a>
+
+ </div>
+
+<br/>
+
+
+
+ <div class="project" class="skill-card" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;border: 1px solid #007bff;">
+
+ <img src="area-perimeter.jpg" alt="Area and Perimeter App Screenshot" width="250px" height="250px">
+
+ <h3 class="project-headings">Area and Perimiter Calculator</h3>
+
+ <p>This web app is a simple and efficient tool designed to calculate the area and perimeter of basic squares/rectangles using just two input values. Users enter the dimensions—like length and width—and instantly receive accurate results. With a fast performance, it’s perfect for students, teachers, or anyone needing quick geometry calculations.</p>
+
+ 
+
+ <br/>
+
+  <a href="https://github.com/umar1254/area-and-periniter-calculator" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; text-rendering: geometricPrecision; border: 3px solid #007bff; width: 250px; height: 100px; margin-left: auto; margin-right: auto; display: block; text-decoration: none; color: #000;">
+
+    View code
+
+</a>
+
+ </div>
+
+<br/>
+
+
+
+ <div class="project" class="skill-card" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;border: 1px solid #007bff;">
+
+ <img src="zooLogo.png" alt="Zoo Website Logo" width="250px" height="250px">
+
+<h3 class="project-headings">Zoo Website (Fictional)</h3>
+
+ <p>A zoo website with multiple pages offers an engaging and informative experience for visitors of all ages. The homepage welcomes users with vibrant images of animals on a map and quick links to featured exhibits. Dedicated Animals pages showcases profiles of species in the zoo, complete with fun facts, habitat details, diet, and conservation status — often organized by category like mammals, reptiles, birds, and aquatic life.</p>
+
+
+
+<br/>
+
+ <a href="https://github.com/umar1254/pine-city-zoo" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; text-rendering: geometricPrecision; border: 3px solid #007bff; width: 250px; height: 100px; margin-left: auto; margin-right: auto; display: block; text-decoration: none; color: #000;">
+
+    View code
+
+</a>
+
+ </div>
+
+<br/>
+
+<div class="project" class="skill-card" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;border: 1px solid #007bff;">
+
+ <img src="avengers.png" alt="Area and Perimeter App Screenshot" width="250px" height="250px">
+
+ <h3 class="project-headings">Avengers Wensite</h3>
+
+ <p>
+
+"The Ultimate Avengers Power Grid: Where Legends Are Measured."
+
+
+
+Unleash the Stats. Settle the Debate.
+
+Forget the fan theories and forum wars. This is the definitive hub for breaking down the raw numbers behind Earth's Mightiest Heroes.
+
+
+
+Dive deep into the core data on the entire Avengers roster—from the founding members to the cosmic heavy-hitters. We've quantified everything that matters:
+
+
+
+ RAW POWER: The upper limits of their kinetic, mystical, or gamma-infused strength.
+
+
+
+ DURABILITY: How many city-level attacks it takes to scratch the paint.
+
+
+
+ TACTICAL INTEL: Rating the minds that built the armors and formulated the plans.
+
+
+
+ COMBAT SKILL: The mastery rating of Cap’s shield work versus Black Widow’s espionage.</p>
+
+ 
+
+ <br/>
+
+  <a href="https://github.com/umar1254/avengers-app2" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; text-rendering: geometricPrecision; border: 3px solid #007bff; width: 250px; height: 100px; margin-left: auto; margin-right: auto; display: block; text-decoration: none; color: #000;">
+
+    View code
+
+</a>
+
+ </div>
+
+<br/>
+
+
+
+ <div class="project" class="skill-card" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center;border: 1px solid #007bff;">
+
+ <img src="comicBook.png" alt="Comic Book Website Screenshot" width="250px" height="100px">
+
+ <h3 class="project-headings">My Comic Book Website</h3>
+
+ <p>The website is a vibrant hub for fans and collectors alike. It features a sleek, visually rich homepage with bold cover art, spotlighting new releases, trending titles, and classic favorites. Navigation is intuitive, with sections for genres (superhero, sci-fi, horror), and formats (single issues, graphic novels, webcomics).</p>
+
+ <br/>
+
+  <a href="https://github.com/umar1254/my-comic-book-store-website" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; text-rendering: geometricPrecision; border: 3px solid #007bff; width: 250px; height: 100px; margin-left: auto; margin-right: auto; display: block; text-decoration: none; color: #000;">
+
+    View code
+
+</a>
+
+ </div>
+
+<br/>
+
+
+
+ <div class="project" class="skill-card" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; border: 1px solid #007bff;">
+
+    <img src="trolley.png" alt="Shopping Cart" width="250px" height="250px">
+
+    <h3 class="project-headings">BasicPython Shopping Cart</h3>
+
+    <p>This is a simple shopping cart application written in Python. It allows a user to input a list of food items they wish to purchase along with the price for each item and then calculates the total cost of all the items.</p>
+
+    <br/>
+
+   <a href="https://github.com/umar1254/shoppingCart" style="background-color: #fff; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; text-rendering: geometricPrecision; border: 3px solid #007bff; width: 250px; height: 100px; margin-left: auto; margin-right: auto; display: block; text-decoration: none; color: #000;">
+
+    View code
+
+</a>
+
+ </div>
+
+ </section>
+        <section class="contact" id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact" />
+                <p hidden>
+                    <label>
+                        Don’t fill this out: <input name="bot-field" />
+                    </label>
+                </p>
+                <input type="text" name="name" placeholder="Your Name" required />
+                <input type="email" name="email" placeholder="Your Email" required />
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn-primary">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Umar Abed. All rights reserved. Built with passion and code.</p>
+    </footer>
+
+    <div id="customModalOverlay" class="modal-overlay">
+        <div id="customModal" class="custom-modal">
+            <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+
+            <h3 id="modalPromptText"></h3>
+            
+            <input type="email" id="modalEmailInput" placeholder="example@email.com" />
+            
+            <p id="modalMessage" style="font-size: 1.1rem;"></p>
+
+            <button id="modalActionButton" data-mode="input">Submit</button>
+        </div>
+    </div>
+    
+    <script src="funtionality.js".js></script> 
+</body>
+</html>

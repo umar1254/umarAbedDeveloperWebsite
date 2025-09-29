@@ -1,0 +1,731 @@
+/* 🌐 Base Reset - Applies default styling and removes browser margins/padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* <body> Styling - Sets global font, background, text color, and enables smooth transitions for dark mode */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4; /* Light Gray Background */
+  color: #333; /* Dark Text */
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Anchor Tags (<a>) - Removes underlines and inherits text color */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Images (<img>) - Ensures images are fully responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 🌙 Dark Mode Styles - Defines colors for dark mode across the entire application */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+/* Dark Mode Backgrounds - Sets dark backgrounds for major structural elements */
+body.dark-mode .navbar,
+body.dark-mode .skill-card,
+body.dark-mode .contact form,
+body.dark-mode footer,
+body.dark-mode .control-bar,
+body.dark-mode .mobile-menu-container {
+  background-color: #1e1e1e;
+}
+
+/* Dark Mode Icons - Styles social and control bar icons */
+body.dark-mode .control-icons a {
+  color: #f0f0f0;
+}
+
+body.dark-mode .control-icons a:hover {
+  color: #1abc9c;
+}
+
+/* Dark Mode Hamburger Menu - Styles the lines of the hamburger icon */
+body.dark-mode .hamburger-menu .line {
+  background-color: #f0f0f0;
+}
+
+/* Dark Mode Skill Cards - Adjusts shadow for visibility on a dark background */
+body.dark-mode .skill-card {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Forms/Modal - Styles input fields, textareas, and the custom modal */
+body.dark-mode .contact input,
+body.dark-mode .contact textarea,
+body.dark-mode .custom-modal {
+  background-color: #333;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+/* Dark Mode Modal Heading - Sets accent color for modal headings */
+body.dark-mode .custom-modal h3 {
+  color: #1abc9c; 
+}
+
+/* Dark Mode Modal Button - Sets accent color for the modal action button */
+body.dark-mode .custom-modal button {
+  background-color: #1abc9c;
+}
+
+/* 🧭 Navbar - Styles the main sticky navigation bar at the top of the page */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 75px; 
+}
+
+/* Logo Section - Aligns the logo image and text */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Logo Image - Sets size for the logo image */
+.logo {
+  width: 40px;
+  height: 40px;
+}
+
+/* 🌙 Modern Dark Mode Toggle (Switch Container) - Sets base size and positioning for the toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+
+/* Dark Mode Toggle Input (Hidden) - Hides the underlying checkbox input */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Dark Mode Slider Track - Styles the background track of the toggle switch */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
+}
+
+/* Dark Mode Slider Knob (Default) - Styles the circular knob inside the toggle track */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* Dark Mode Slider Track (Checked) - Changes the track color when the toggle is active */
+input:checked + .slider {
+  background-color: #1abc9c;
+}
+
+/* Dark Mode Slider Knob (Checked) - Moves the knob to the right when the toggle is active */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Dark Mode Sun/Moon Icons (Base) - Sets positioning for the icons layered under the knob */
+.slider i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  transition: opacity 0.4s, color 0.4s;
+  z-index: 1;
+}
+
+/* Dark Mode Sun Icon - Positions and colors the sun icon (visible by default) */
+.slider .fa-sun {
+  left: 5px;
+  color: #f1c40f;
+  opacity: 1;
+}
+
+/* Dark Mode Moon Icon - Positions and colors the moon icon (hidden by default) */
+.slider .fa-moon {
+  right: 5px;
+  color: #333;
+  opacity: 0;
+}
+
+/* Dark Mode Sun Icon (Checked) - Hides the sun icon when dark mode is active */
+input:checked + .slider .fa-sun {
+  opacity: 0;
+}
+
+/* Dark Mode Moon Icon (Checked) - Shows the moon icon when dark mode is active */
+input:checked + .slider .fa-moon {
+  opacity: 1;
+}
+
+/* 🌟 Hero Section - Styles the main introductory banner */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #3498db, #2c3e50);
+  color: white;
+}
+
+/* Hero Text Heading (H2) - Styles the main greeting heading */
+.hero-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Hero Text Accent - Styles the accent color for the name in the heading */
+.hero-text span {
+  color: #1abc9c;
+}
+
+/* Hero Intro Paragraph - Styles the descriptive paragraph text */
+.intro {
+  font-size: 2em;
+  font-style: initial;
+}
+
+/* Primary Button (.btn-primary) - Styles the main call-to-action button */
+.btn-primary {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #fff;
+  color: #2c3e50;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+/* Primary Button Hover - Defines the hover state for the primary button */
+.btn-primary:hover {
+  background-color: #1abc9c;
+  color: #fff;
+}
+
+/* Hero Image Container - Positions the circular profile image */
+.hero-img {
+  margin-top: 2rem;
+}
+
+/* Hero Image - Styles the profile image (circular shape, shadow) */
+.hero-img img {
+  border-radius: 50%;
+  width: 200px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 💼 Projects Section - Sets layout for the projects section container */
+.projects {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* 💻 Skills Section - Sets layout for the skills and journey section containers */
+.skills {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* Section Title - Styles the main title of sections like Skills and Journey */
+.section-title {
+  font-size: 50px;
+}
+
+/* Skill Grid - Sets up a 4-column grid layout for skill cards */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 0.5fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* Skill Card - Styles individual skill boxes with background, padding, shadow, and hover effect */
+.skill-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  text-align: center;
+  min-height: 200px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid #004085;
+}
+
+/* Skill Card Hover - Applies a subtle lift and scale effect on hover */
+.skill-card:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* Skill Card Heading (H3) - Styles the title inside the skill card */
+.skill-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+/* Skill Card Paragraph - Styles the descriptive text inside the skill card */
+.skill-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* Skill Card Icon - Styles the icon associated with the skill card */
+.skill-card i {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+/* My Journey Section Card - Styles individual certificate entries with border and shadow */
+.certificate-card {
+  border: 1px solid #004085;
+  width: 95%;
+  max-width: 1000px;
+  margin-bottom: 1rem;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: auto;
+}
+
+/* Journey Card Details - Arranges the text and buttons/date horizontally on large screens */
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Date and Button Container - Groups the date block and the 'View Certificate' button */
+.date-and-button {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* Date Block - Styles the visual block displaying the course completion date range */
+.date-block {
+  background-color: #004085;
+  color: aliceblue;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  white-space: nowrap;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Certificate Button - Styles the button used to view the certificate via the modal */
+.btn-certificate {
+  background-color: #004085;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+  white-space: nowrap;
+}
+
+/* 📬 Contact Section - Sets the layout for the contact form area */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+/* Contact Form - Styles the container for the form elements */
+.contact form {
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+/* Contact Inputs - Styles text inputs and textareas in the form */
+.contact input,
+.contact textarea {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Contact Input Focus - Provides visual feedback when form inputs are focused */
+.contact input:focus,
+.contact textarea:focus {
+  border-color: #2c3e50;
+  outline: none;
+}
+
+/* 📜 Footer - Styles the content and positioning of the page footer */
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 2rem;
+  background-color: #2c3e50;
+  color: #fff;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+/* 🛠 Control Bar - Styles the social media icon/dark mode bar, placed above the hero section */
+.control-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 10px 0;
+  background: var(--bg-color, #fff);
+  position: relative;
+  top: 0;
+  width: 100%;
+}
+
+/* Control Logo - Styles the logo element within the control bar (if present) */
+.control-logo img {
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+/* Control Logo Hover - Applies a scale effect on logo hover */
+.control-logo img:hover {
+  transform: scale(1.5);
+}
+
+/* Control Icons Container - Styles the container grouping social media links and the toggle */
+.control-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Control Icons Link - Styles the individual social media icons */
+.control-icons a {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Control Icons Hover - Defines hover effect for social media icons */
+.control-icons a:hover {
+  color: #1abc9c;
+  transform: scale(1.7);
+}
+
+/* Hamburger Button - Styles the mobile menu toggle button lines and interaction */
+.hamburger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1000;
+}
+
+/* Hamburger Line - Styles the individual lines of the hamburger icon */
+.hamburger-menu .line {
+  width: 100%;
+  height: 3px;
+  background-color: #004085;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Animation (Line 1) - Transforms the top line into the 'X' shape */
+.hamburger-menu[aria-expanded="true"] .line:nth-child(1) {
+  transform: translateY(11px) rotate(45deg);
+}
+
+/* Hamburger Animation (Line 2) - Hides the middle line */
+.hamburger-menu[aria-expanded="true"] .line:nth-child(2) {
+  opacity: 0;
+}
+
+/* Hamburger Animation (Line 3) - Transforms the bottom line into the 'X' shape */
+.hamburger-menu[aria-expanded="true"] .line:nth-child(3) {
+  transform: translateY(-11px) rotate(-45deg);
+}
+
+/* Desktop Navigation Links - Hides the desktop links since the mobile menu is used responsively */
+.nav-links {
+  display: none; 
+}
+
+/* Mobile Menu Container - Styles the dropdown panel that appears when the hamburger is clicked (fixed position is key for scrolling) */
+.mobile-menu-container {
+  display: none;
+  position: fixed; 
+  top: 75px; 
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 999; 
+}
+
+/* Mobile Navigation Links List - Styles the list container inside the mobile menu */
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0;
+  margin: 0;
+}
+
+/* Mobile Navigation Link Item - Styles individual links inside the dropdown */
+.mobile-nav-links a {
+  display: block;
+  padding: 12px 20px;
+  text-decoration: none;
+  color: #2c3e50;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s;
+}
+
+/* Mobile Navigation Link Hover - Defines the hover state for mobile links */
+.mobile-nav-links a:hover {
+  background-color: #f7f7f7;
+}
+
+/* Mobile Menu Active State - Forces the mobile menu to display when toggled via JavaScript */
+.mobile-menu-container.active {
+  display: block;
+}
+
+/* 📱 Responsive Styles (900px breakpoint) - Adjusts layout for medium-sized screens (tablets) */
+@media (max-width: 900px) {
+  .skill-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 📱 Responsive Styles (768px breakpoint) - Adjusts layout for small tablets and larger phones */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    height: auto; 
+  }
+  
+  /* Mobile Menu Top Position Adjustment - Corrects the dropdown position if the navbar wraps and becomes taller */
+  .mobile-menu-container {
+    top: 100px; 
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  .contact form {
+    padding: 1rem;
+  }
+}
+
+/* 📱 Responsive Styles (600px breakpoint) - Adjusts layout for smaller phones */
+@media (max-width: 600px) {
+  .skill-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*  Animated Headings - Creates an animated rainbow effect on specific headings */
+.project-headings {
+  font-size: 2em;
+  background: linear-gradient(blue, #1abc9c);
+  background-size: 400%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowText 5s linear infinite;
+}
+
+/* Rainbow Text Animation Keyframes - Defines the animation sequence for the rainbow effect */
+@keyframes rainbowText {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+/* -------------------------------------
+   Custom Modal Overlay - Styles the dark background that covers the page when the modal is open
+   ------------------------------------- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+/* Modal Overlay Open State - Makes the overlay visible when JavaScript adds the 'open' class */
+.modal-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Custom Modal Box - Styles the main white container of the modal */
+.custom-modal {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  transform: scale(0.95);
+  transition: transform 0.3s ease-out;
+  position: relative; 
+}
+
+/* Custom Modal Box Open State - Animates the modal size when it opens */
+.modal-overlay.open .custom-modal {
+  transform: scale(1);
+}
+
+/* Custom Modal Heading - Styles the title inside the modal */
+.custom-modal h3 {
+  margin-top: 0;
+  color: #004085;
+}
+
+/* Custom Modal Input - Styles the email input field */
+.custom-modal input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Custom Modal Button - Styles the action button inside the modal */
+.custom-modal button {
+  background-color: #004085;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+/* Custom Modal Button Hover - Defines the hover state for the modal button */
+.custom-modal button:hover {
+  background-color: #007bff;
+}
+
+/* Specific Mode: Input Mode Hiding - Hides the message text and close button when the modal is prompting for input */
+.modal-input-mode #modalMessage,
+.modal-input-mode #modalActionButton[data-mode="close"] {
+  display: none;
+}
+
+/* Specific Mode: Message Mode Hiding - Hides the email input and submit button when the modal is displaying a message */
+.modal-message-mode #modalEmailInput,
+.modal-message-mode #modalActionButton[data-mode="input"] {
+  display: none;
+}
+
+/*  Modal Close Button - Styles the button used to dismiss the modal */
+.modal-close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+}
+
+/* Modal Close Button Hover - Defines the hover state for the close button */
+.modal-close-btn:hover {
+  color: #333;
+}
