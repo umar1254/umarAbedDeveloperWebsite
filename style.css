@@ -1,808 +1,483 @@
-/* 🌐 Base Reset - Applies default styling and removes browser margins/padding */
+/* 🌐 Base Reset */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* <body> Styling - Sets global font, background, text color, and enables smooth transitions for dark mode */
+/* <body> Styling - Setting a fluid base font size */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f4f4; /* Light Gray Background */
-  color: #333; /* Dark Text */
-  transition: background 0.3s, color 0.3s;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    transition: background 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Base Font Size: Use a mix of px (for readability floor) and vw (for scaling) */
+    font-size: clamp(14px, 2.5vw, 16px); 
 }
 
-/* Anchor Tags (<a>) - Removes underlines and inherits text color */
+/* Anchor Tags (<a>) */
 a {
-  text-decoration: none;
-  color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
-/* Images (<img>) - Ensures images are fully responsive */
+/* Images (<img>) */
 img {
-  max-width: 100%;
-  height: auto;
+    max-width: 100%;
+    height: auto;
 }
 
-/* 🌙 Dark Mode Styles - Defines colors for dark mode across the entire application */
+/* 🌙 Dark Mode Styles - (No fluid changes needed here) */
 body.dark-mode {
-  background-color: #121212;
-  color: #f0f0f0;
+    background-color: #121212;
+    color: #f0f0f0;
 }
-
-/* Dark Mode Backgrounds - Sets dark backgrounds for major structural elements */
 body.dark-mode .navbar,
 body.dark-mode .skill-card,
-body.dark-mode .certificate-card, /* Added missing journey card to dark mode */
+body.dark-mode .certificate-card,
 body.dark-mode .contact form,
 body.dark-mode footer,
 body.dark-mode .control-bar,
 body.dark-mode .mobile-menu-container {
-  background-color: #1e1e1e;
+    background-color: #1e1e1e;
 }
-
-/* Dark Mode Text/Title Color */
 body.dark-mode .logo-section .site-title {
-  color: #f0f0f0; /* Ensure site title is light */
+    color: #f0f0f0;
 }
-
-/* Dark Mode Icons - Styles social and control bar icons */
 body.dark-mode .control-icons a {
-  color: #f0f0f0;
+    color: #f0f0f0;
 }
-
 body.dark-mode .control-icons a:hover {
-  color: #1abc9c;
+    color: #1abc9c;
 }
-
-/* Dark Mode Hamburger Menu - Styles the lines of the hamburger icon */
 body.dark-mode .hamburger-menu .line {
-  background-color: #f0f0f0;
+    background-color: #f0f0f0;
 }
-
-/* Dark Mode Skill Cards - Adjusts shadow for visibility on a dark background */
 body.dark-mode .skill-card {
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
-  border: 0.5px solid #1abc9c; /* Improve border visibility */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+    border: 0.5px solid #1abc9c;
 }
-
-/* Dark Mode Forms/Modal - Styles input fields, textareas, and the custom modal */
 body.dark-mode .contact input,
 body.dark-mode .contact textarea,
 body.dark-mode .custom-modal {
-  background-color: #333;
-  color: #f0f0f0;
-  border-color: #555;
+    background-color: #333;
+    color: #f0f0f0;
+    border-color: #555;
 }
-
-/* Dark Mode Modal Heading - Sets accent color for modal headings */
 body.dark-mode .custom-modal h3 {
-  color: #1abc9c; 
+    color: #1abc9c;
 }
-
-/* Dark Mode Modal Button - Sets accent color for the modal action button */
 body.dark-mode .custom-modal button {
-  background-color: #1abc9c;
+    background-color: #1abc9c;
 }
 
-/* 🧭 Navbar - Styles the main sticky navigation bar at the top of the page */
+---
+## Navigation and Controls (Fluid)
+
+/* 🧭 Navbar - Fluid padding and height */
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #fff;
-  position: sticky; 
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  height: 75px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Fluid Padding based on viewport width (vw) */
+    padding: 2vw 4vw;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* Fluid Minimum Height (replaces 75px) */
+    min-height: 10vw; 
 }
 
-/* Logo Section - Aligns the logo image and text */
+/* Logo Section - Fluid gap */
 .logo-section {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
 }
 
-/* Logo Image - Sets size for the logo image */
+/* Logo Image - Fluid size based on viewport width (vw) */
 .logo {
-  width: 40px;
-  height: 40px;
+    width: 8vw;
+    height: 8vw;
+    /* Ensure a minimum size for clickability */
+    min-width: 40px; 
+    min-height: 40px;
 }
 
-/* ✅ FIX: Site Title Styling (Your Name) - Ensures your name is prominent */
+/* Site Title - Fluid font size */
 .logo-section .site-title {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #2c3e50; /* Dark blue/gray */
-  transition: color 0.3s;
+    font-size: clamp(1.4rem, 4vw, 1.8rem); /* Font size constrained between 1.4rem and 1.8rem */
+    font-weight: bold;
+    color: #2c3e50;
+    transition: color 0.3s;
 }
 
-/* 🌙 Modern Dark Mode Toggle (Switch Container) - Sets base size and positioning for the toggle switch */
+/* 🌙 Dark Mode Toggle (Switch Container) - Fluid size */
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
+    position: relative;
+    display: inline-block;
+    width: 10vw; 
+    height: 5vw;
+    min-width: 50px;
+    min-height: 24px;
 }
-
-/* Dark Mode Toggle Input (Hidden) - Hides the underlying checkbox input */
 .switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
-
-/* Dark Mode Slider Track - Styles the background track of the toggle switch */
 .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 24px;
+    border-radius: 5vw; /* Fluid border radius */
 }
 
-/* Dark Mode Slider Knob (Default) - Styles the circular knob inside the toggle track */
+/* Dark Mode Slider Knob (Default) - Fluid size and position using percentage */
 .slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
+    position: absolute;
+    content: "";
+    height: 75%; /* Relative to parent height */
+    width: 35%; /* Relative to parent width */
+    left: 6%;
+    bottom: 12.5%;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
 }
 
-/* Dark Mode Slider Track (Checked) - Changes the track color when the toggle is active */
-input:checked + .slider {
-  background-color: #1abc9c;
-}
-
-/* Dark Mode Slider Knob (Checked) - Moves the knob to the right when the toggle is active */
+/* Dark Mode Slider Knob (Checked) - Fluid movement */
 input:checked + .slider:before {
-  transform: translateX(26px);
+    transform: translateX(130%); /* Fluid movement based on parent width */
 }
 
-/* Dark Mode Sun/Moon Icons (Base) - Sets positioning for the icons layered under the knob */
+/* Dark Mode Sun/Moon Icons (Base) - Fluid font size */
 .slider i {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1rem;
-  transition: opacity 0.4s, color 0.4s;
-  z-index: 1;
+    font-size: 2.5vw;
 }
 
-/* Dark Mode Sun Icon - Positions and colors the sun icon (visible by default) */
-.slider .fa-sun {
-  left: 5px;
-  color: #f1c40f;
-  opacity: 1;
+/* 🛠 Control Bar - Fluid padding and gap */
+.control-bar {
+    gap: 3vw;
+    padding: 2vw 0;
+    background: var(--bg-color, #fff);
+    position: relative;
+    top: 0;
+    width: 100%;
+}
+.control-logo img:hover {
+    transform: scale(1.5);
+}
+.control-icons {
+    gap: 3vw;
 }
 
-/* Dark Mode Moon Icon - Positions and colors the moon icon (hidden by default) */
-.slider .fa-moon {
-  right: 5px;
-  color: #333;
-  opacity: 0;
+/* Control Icons Link - Fluid font size */
+.control-icons a {
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
 }
 
-/* Dark Mode Sun Icon (Checked) - Hides the sun icon when dark mode is active */
-input:checked + .slider .fa-sun {
-  opacity: 0;
+/* ✅ FIX: Hamburger Button - Fluid size and margin */
+.hamburger-menu {
+    width: 8vw; /* Fluid width */
+    height: 6vw; /* Fluid height */
+    margin-left: 4vw; /* Fluid margin */
+}
+.hamburger-menu .line {
+    height: 0.8vw; /* Fluid line thickness */
 }
 
-/* Dark Mode Moon Icon (Checked) - Shows the moon icon when dark mode is active */
-input:checked + .slider .fa-moon {
-  opacity: 1;
+/* Hamburger Animation (Line 1/3) - Fluid movement */
+.hamburger-menu[aria-expanded="true"] .line:nth-child(1) {
+    transform: translateY(2.5vw) rotate(45deg);
+}
+.hamburger-menu[aria-expanded="true"] .line:nth-child(3) {
+    transform: translateY(-2.5vw) rotate(-45deg);
 }
 
-/* 🌟 Hero Section - Styles the main introductory banner */
+/* Mobile Menu Container - Positioned fluidly from top */
+.mobile-menu-container {
+    top: 10vw; /* Matches the fluid navbar min-height */
+    width: 100%;
+}
+.mobile-nav-links {
+    padding: 2vw 0;
+}
+
+/* Mobile Navigation Link Item - Fluid padding and font size */
+.mobile-nav-links a {
+    padding: 3vw 4vw;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    border-bottom: 1px solid #eee;
+}
+
+---
+## Content Sections (Fluid)
+
+/* 🌟 Hero Section - Fluid padding and typography */
 .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(to right, #3498db, #2c3e50);
-  color: white;
+    padding: 8vw 4vw;
 }
 
-/* Hero Text Heading (H2) - Styles the main greeting heading */
+/* Hero Text Heading (H2) - Fluid font size */
 .hero-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+    font-size: clamp(2rem, 7vw, 2.5rem);
+    margin-bottom: 3vw;
 }
 
-/* Hero Text Accent - Styles the accent color for the name in the heading */
-.hero-text span {
-  color: #1abc9c;
-}
-
-/* Hero Intro Paragraph - Styles the descriptive paragraph text */
+/* Hero Intro Paragraph - Fluid font size */
 .intro {
-  font-size: 2em;
-  font-style: initial;
+    font-size: clamp(1.2rem, 4vw, 2em);
+    font-style: initial;
 }
 
-/* Primary Button (.btn-primary) - Styles the main call-to-action button */
+/* Primary Button (.btn-primary) - Fluid padding and margin */
 .btn-primary {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background-color: #fff;
-  color: #2c3e50;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s;
+    margin-top: 3vw;
+    padding: 2vw 4vw;
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
 }
 
-/* Primary Button Hover - Defines the hover state for the primary button */
-.btn-primary:hover {
-  background-color: #1abc9c;
-  color: #fff;
-}
-
-/* Hero Image Container - Positions the circular profile image */
-.hero-img {
-  margin-top: 2rem;
-}
-
-/* Hero Image - Styles the profile image (circular shape, shadow) */
+/* Hero Image - Fluid width */
 .hero-img img {
-  border-radius: 50%;
-  width: 200px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 50%;
+    width: clamp(150px, 40vw, 200px); /* Constrained fluid width */
+    box-shadow: 0 0 4vw rgba(0, 0, 0, 0.2);
 }
 
-/* 💼 Projects Section - Sets layout for the projects section container */
-.projects {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 2rem;
-  text-align: center;
+/* 💼 Projects & Skills Section - Fluid padding */
+.projects, .skills {
+    padding: 6vw 4vw;
 }
 
-/* 💻 Skills Section - Sets layout for the skills and journey section containers */
-.skills {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 2rem;
-  text-align: center;
-}
-
-/* Section Title - Styles the main title of sections like Skills and Journey */
+/* Section Title - Fluid font size */
 .section-title {
-  font-size: 50px;
+    font-size: clamp(2rem, 8vw, 50px);
+    margin-bottom: 5vw;
 }
 
-/* Skill Grid - Sets up a 4-column grid layout for skill cards */
+/* Skill Grid - Fluid gap and margin */
 .skill-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 0.5fr);
-  gap: 2rem;
-  margin-top: 2rem;
+    /* Retain grid structure, but adjust gap */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4vw;
+    margin-top: 4vw;
+    width: 100%;
+    max-width: 1200px;
 }
 
-/* Skill Card - Styles individual skill boxes with background, padding, shadow, and hover effect */
+/* Skill Card - Fluid padding and minimum height */
 .skill-card {
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
-  text-align: center;
-  min-height: 200px; 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border: 0.5px solid #004085;
+    padding: 3vw;
+    min-height: 40vw; /* Fluid minimum height on mobile */
+    min-height: clamp(150px, 40vw, 250px);
 }
 
-/* Skill Card Hover - Applies a subtle lift and scale effect on hover */
-.skill-card:hover {
-  transform: translateY(-5px) scale(1.05); /* Adjusted scale for better feel */
-}
-
-/* Skill Card Heading (H3) - Styles the title inside the skill card */
+/* Skill Card Heading (H3) - Fluid font size */
 .skill-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #2c3e50;
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 1.5vw;
 }
 
-/* Skill Card Paragraph - Styles the descriptive text inside the skill card */
+/* Skill Card Paragraph - Fluid font size and margin */
 .skill-card p {
-  font-size: 1rem;
-  color: #555;
-  margin-top: 10px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    margin-top: 2vw;
 }
 
-/* Skill Card Icon - Styles the icon associated with the skill card */
+/* Skill Card Icon - Fluid font size and margin */
 .skill-card i {
-  font-size: 2.5rem;
-  color: #2c3e50;
-  margin-bottom: 1rem;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 2vw;
 }
 
-/* My Journey Section Card - Styles individual certificate entries with border and shadow */
+---
+## Journey & Contact (Fluid)
+
+/* My Journey Section Card - Percentage width, fluid margin/padding */
 .certificate-card {
-  border: 1px solid #004085;
-  width: 95%;
-  max-width: 1000px;
-  margin-bottom: 1rem;
-  background-color: #fff;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-height: auto;
+    width: 95%; /* 95% of the parent container */
+    max-width: 1000px;
+    margin-bottom: 2vw;
+    padding: 3vw;
 }
 
-/* Journey Card Details - Arranges the text and buttons/date horizontally on large screens */
+/* Journey Card Details - Fluid gap */
 .card-details {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+    gap: 3vw;
 }
 
-/* Date and Button Container - Groups the date block and the 'View Certificate' button */
+/* Date and Button Container - Fluid gap */
 .date-and-button {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-left: auto;
-  flex-shrink: 0;
+    gap: 3vw;
 }
 
-/* Date Block - Styles the visual block displaying the course completion date range */
+/* Date Block - Fluid padding, height, and font size */
 .date-block {
-  background-color: #004085;
-  color: aliceblue;
-  padding: 0.75rem 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  white-space: nowrap;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    padding: 1.5vw 3vw;
+    height: clamp(40px, 8vw, 50px);
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
-/* Certificate Button - Styles the button used to view the certificate via the modal */
+/* Certificate Button - Fluid padding and font size */
 .btn-certificate {
-  background-color: #004085;
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-  white-space: nowrap;
+    padding: 1.5vw 3vw;
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
-/* 📬 Contact Section - Sets the layout for the contact form area */
+/* 📬 Contact Section - Fluid padding */
 .contact {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 3rem 2rem;
-  text-align: center;
+    padding: 6vw 4vw;
 }
 
-/* Contact Form - Styles the container for the form elements */
+/* Contact Form - Fluid padding and gap */
 .contact form {
-  max-width: 600px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 10px;
+    max-width: 600px;
+    width: 100%;
+    gap: 2vw;
+    padding: 4vw;
 }
 
-/* Contact Inputs - Styles text inputs and textareas in the form */
+/* Contact Inputs - Fluid padding and font size */
 .contact input,
 .contact textarea {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
+    padding: 2.5vw;
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
-/* Contact Input Focus - Provides visual feedback when form inputs are focused */
-.contact input:focus,
-.contact textarea:focus {
-  border-color: #2c3e50;
-  outline: none;
-}
-
-/* 📜 Footer - Styles the content and positioning of the page footer */
+/* 📜 Footer - Fluid padding and font size */
 footer {
-  width: 100%;
-  text-align: center;
-  padding: 2rem;
-  background-color: #2c3e50;
-  color: #fff;
-  font-size: 0.9rem;
-  margin-top: auto;
+    padding: 4vw;
+    font-size: clamp(0.8rem, 2.5vw, 0.9rem);
 }
 
-/* 🛠 Control Bar - Styles the social media icon/dark mode bar, placed above the hero section */
-.control-bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
-  padding: 10px 0;
-  background: var(--bg-color, #fff);
-  position: relative;
-  top: 0;
-  width: 100%;
+---
+## Modals (Fluid)
+
+/* Custom Modal Box - Fluid padding and width */
+.custom-modal {
+    padding: 6vw;
+    width: 90vw; /* 90% of the viewport width */
+    max-width: 400px;
 }
 
-/* Control Logo - Styles the logo element within the control bar (if present) */
-.control-logo img {
-  border-radius: 50%;
-  transition: transform 0.3s ease;
+/* Custom Modal Input - Fluid padding, margin, and font size */
+.custom-modal input[type="email"] {
+    padding: 3vw;
+    margin: 3vw 0;
+    font-size: clamp(1rem, 3vw, 1.1rem);
 }
 
-/* Control Logo Hover - Applies a scale effect on logo hover */
-.control-logo img:hover {
-  transform: scale(1.5);
+/* Custom Modal Button - Fluid padding and font size */
+.custom-modal button {
+    padding: 2.5vw 5vw;
+    font-size: clamp(1rem, 3vw, 1.1rem);
 }
 
-/* Control Icons Container - Styles the container grouping social media links and the toggle */
-.control-icons {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+/* Modal Close Button - Fluid positioning and size */
+.modal-close-btn {
+    top: 2vw;
+    right: 3vw;
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
 }
 
-/* Control Icons Link - Styles the individual social media icons */
-.control-icons a {
-  font-size: 1.4rem;
-  color: #2c3e50;
-  transition: color 0.3s ease, transform 0.3s ease;
+/* Animated Headings - Fluid font size */
+.project-headings {
+    font-size: clamp(1.5em, 6vw, 2em);
 }
+/* Keyframes remain the same */
 
-/* Control Icons Hover - Defines hover effect for social media icons */
-.control-icons a:hover {
-  color: #1abc9c;
-  transform: scale(1.7);
-}
+---
+## Responsive Overrides (Adjusted to Fluid Units)
 
-/* ✅ FIX: Hamburger Button - Styles the mobile menu toggle button lines and interaction */
-.hamburger-menu {
-  display: flex; /* IMPORTANT: Ensures visibility on mobile/tablet */
-  flex-direction: column;
-  justify-content: space-around;
-  width: 30px;
-  height: 25px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 1000;
-  margin-left: 1.5rem; /* Add some space next to the control icons */
-}
-
-/* Hamburger Line - Styles the individual lines of the hamburger icon */
-.hamburger-menu .line {
-  width: 100%;
-  height: 3px;
-  background-color: #004085;
-  border-radius: 2px;
-  transition: all 0.3s ease-in-out;
-}
-
-/* Hamburger Animation (Line 1) - Transforms the top line into the 'X' shape */
-.hamburger-menu[aria-expanded="true"] .line:nth-child(1) {
-  transform: translateY(11px) rotate(45deg);
-}
-
-/* Hamburger Animation (Line 2) - Hides the middle line */
-.hamburger-menu[aria-expanded="true"] .line:nth-child(2) {
-  opacity: 0;
-}
-
-/* Hamburger Animation (Line 3) - Transforms the bottom line into the 'X' shape */
-.hamburger-menu[aria-expanded="true"] .line:nth-child(3) {
-  transform: translateY(-11px) rotate(-45deg);
-}
-
-/* ⛔ MOBILE FIRST: Desktop Navigation Links - HIDDEN BY DEFAULT */
-.nav-links {
-  display: none; 
-}
-
-/* Mobile Menu Container - HIDDEN BY DEFAULT, SHOWN BY JS TOGGLE */
-.mobile-menu-container {
-  display: none;
-  position: fixed; 
-  top: 75px; /* Use the fixed navbar height */
-  left: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.98);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 999; 
-}
-
-/* Mobile Navigation Links List - Styles the list container inside the mobile menu */
-.mobile-nav-links {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0;
-  margin: 0;
-}
-
-/* Mobile Navigation Link Item - Styles individual links inside the dropdown */
-.mobile-nav-links a {
-  display: block;
-  padding: 12px 20px;
-  text-decoration: none;
-  color: #2c3e50;
-  font-weight: 500;
-  border-bottom: 1px solid #eee;
-  transition: background-color 0.2s;
-}
-
-/* Mobile Navigation Link Hover - Defines the hover state for mobile links */
-.mobile-nav-links a:hover {
-  background-color: #f7f7f7;
-}
-
-/* Mobile Menu Active State - Forces the mobile menu to display when toggled via JavaScript */
-.mobile-menu-container.active {
-  display: block;
-}
-
-/* 📱 Responsive Styles (900px breakpoint) - Adjusts layout for medium-sized screens (tablets) */
+/* 📱 Responsive Styles (900px breakpoint) - Tablet/Large Mobile */
 @media (max-width: 900px) {
-  .skill-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+    .skill-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6vw;
+    }
 }
 
-/* 📱 Responsive Styles (768px breakpoint) - Adjusts layout for small tablets and larger phones */
+/* 📱 Responsive Styles (768px breakpoint) - Mobile/Small Tablet */
 @media (max-width: 768px) {
-  /* Ensure the navbar stays horizontal for mobile/tablet */
-  .navbar {
-    flex-direction: row; 
-    align-items: center;
-    justify-content: space-between;
-    height: 75px; /* Fixed height for consistent mobile menu position */
-  }
+    /* Navbar height is now handled by min-height: 10vw */
+    .navbar {
+        padding: 3vw 4vw; 
+    }
 
-  /* Adjustments for the Journey Card */
-  .card-details {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
+    /* Adjustments for the Journey Card */
+    .card-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3vw;
+    }
 
-  .date-and-button {
-    margin-left: 0;
-    justify-content: flex-start;
-  }
-  
-  .hero-text h2 {
-    font-size: 2rem;
-  }
-
-  .contact form {
-    padding: 1rem;
-  }
+    /* Ensure button/date block spans full width and centers the text */
+    .date-and-button {
+        margin-left: 0;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .contact form {
+        padding: 6vw;
+    }
 }
 
-/* 📱 Responsive Styles (600px breakpoint) - Adjusts layout for smaller phones */
+/* 📱 Responsive Styles (600px breakpoint) - Smaller Phones */
 @media (max-width: 600px) {
-  .skill-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  /* Stack Control Bar elements on very small screens if needed, but keeping them inline is usually better */
-  .control-bar {
-      padding: 5px 10px;
-  }
+    .skill-grid {
+        grid-template-columns: 1fr;
+        gap: 5vw;
+    }
+    .date-and-button {
+        /* Stack date and button vertically on small screens */
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+    .date-block, .btn-certificate {
+        width: 100%; /* Make elements fill the space when stacked */
+        text-align: center;
+    }
 }
 
 /* ----------------------------------------------------
-  ✅ DESKTOP VIEW: OVERRIDE MOBILE STYLES (Min-Width 769px)
-  (100000000000% sure this logic works)
-  ---------------------------------------------------- */
+ ✅ DESKTOP VIEW: OVERRIDE MOBILE STYLES (Min-Width 769px)
+ ---------------------------------------------------- */
 @media (min-width: 769px) {
-  /* Hide the hamburger button on desktop */
-  .hamburger-menu {
-    display: none;
-  }
+    /* Reset Navbar to more traditional desktop sizing */
+    .navbar {
+        min-height: 75px; 
+    }
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    .switch {
+        width: 50px;
+        height: 24px;
+    }
+    .hamburger-menu {
+        display: none;
+    }
+    .mobile-menu-container {
+        display: none;
+    }
 
-  /* Hide the full mobile menu container on desktop */
-  .mobile-menu-container {
-    display: none;
-  }
+    /* Show the main desktop navigation links */
+    .nav-links {
+        display: flex !important;
+        gap: 1.5rem;
+    }
+    .main-nav {
+        gap: 2rem;
+    }
 
-  /* Show the main desktop navigation links */
-  .nav-links {
-    display: flex !important; /* Use !important to override the mobile default 'display: none' */
-    flex-direction: row;
-    list-style: none;
-    gap: 1.5rem;
-    margin: 0;
-    padding: 0;
-  }
-
-  /* Group links and control icons for alignment */
-  .main-nav {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-  }
-
-  /* Style desktop links */
-  .main-nav .nav-links a {
-    color: #2c3e50;
-    font-weight: 500;
-    transition: color 0.3s;
-    border-bottom: none;
-    padding: 0;
-  }
-
-  .main-nav .nav-links a:hover {
-    color: #1abc9c;
-    background-color: transparent;
-  }
-}
-
-
-/*  Animated Headings - Creates an animated rainbow effect on specific headings */
-.project-headings {
-  font-size: 2em;
-  background: linear-gradient(blue, #1abc9c);
-  background-size: 400%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-fill-color: transparent;
-  animation: rainbowText 5s linear infinite;
-}
-
-/* Rainbow Text Animation Keyframes - Defines the animation sequence for the rainbow effect */
-@keyframes rainbowText {
-  0% {
-    background-position: 0%;
-  }
-  100% {
-    background-position: 100%;
-  }
-}
-
-/* -------------------------------------
-  Custom Modal Overlay - Styles the dark background that covers the page when the modal is open
-  ------------------------------------- */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-}
-
-/* Modal Overlay Open State - Makes the overlay visible when JavaScript adds the 'open' class */
-.modal-overlay.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Custom Modal Box - Styles the main white container of the modal */
-.custom-modal {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-  transform: scale(0.95);
-  transition: transform 0.3s ease-out;
-  position: relative; 
-}
-
-/* Custom Modal Box Open State - Animates the modal size when it opens */
-.modal-overlay.open .custom-modal {
-  transform: scale(1);
-}
-
-/* Custom Modal Heading - Styles the title inside the modal */
-.custom-modal h3 {
-  margin-top: 0;
-  color: #004085;
-}
-
-/* Custom Modal Input - Styles the email input field */
-.custom-modal input[type="email"] {
-  width: 100%;
-  padding: 10px;
-  margin: 15px 0;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-sizing: border-box;
-}
-
-/* Custom Modal Button - Styles the action button inside the modal */
-.custom-modal button {
-  background-color: #004085;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s;
-}
-
-/* Custom Modal Button Hover - Defines the hover state for the modal button */
-.custom-modal button:hover {
-  background-color: #007bff;
-}
-
-/* Specific Mode: Input Mode Hiding - Hides the message text and close button when the modal is prompting for input */
-.modal-input-mode #modalMessage,
-.modal-input-mode #modalActionButton[data-mode="close"] {
-  display: none;
-}
-
-/* Specific Mode: Message Mode Hiding - Hides the email input and submit button when the modal is displaying a message */
-.modal-message-mode #modalEmailInput,
-.modal-message-mode #modalActionButton[data-mode="input"] {
-  display: none;
-}
-
-/*  Modal Close Button - Styles the button used to dismiss the modal */
-.modal-close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  background: transparent;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #888;
-  transition: color 0.2s;
-}
-
-/* Modal Close Button Hover - Defines the hover state for the close button */
-.modal-close-btn:hover {
-  color: #333;
+    /* Use fixed rem font sizes for desktop links for consistency */
+    .main-nav .nav-links a {
+        font-size: 1rem;
+    }
 }
